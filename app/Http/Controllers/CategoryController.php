@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use Illuminate\Http\Request;
+use App\Http\Resources\CategoryResource;
 
 class CategoryController extends Controller
 {
@@ -45,7 +46,7 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Category $category)
-    {
+    {        
         //
     }
 
@@ -81,5 +82,9 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         //
+    }
+    
+    public function all(){
+        return new CategoryResource(Category::all());
     }
 }
